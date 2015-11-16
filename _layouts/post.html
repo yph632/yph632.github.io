@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div class="row">
+  <div id="myArticle" class="col-sm-10">
+    <div class="post-area post">
+      <header>
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      </header>
+      <hr>
+      <article>
+        {{content}}
+      </article>
+      <hr>
+	  
+      <ul class="pagination">
+      {% if page.previous %}
+         <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; 上一篇</a></li>
+         {% else %}
+         <li class="prev disabled"><a>&larr; 上一篇</a></li>
+         {% endif %}
+      
+         {% if page.next %}
+          <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">下一篇 &raquo;</a></li>
+          {% else %}
+          <li class="next disabled"><a>下一篇 &rarr;</a>
+         {% endif %}
+         </ul>
+       <hr/>
+      </div>
+	
+    <div class="page-content post comment">
+    <!-- 多说评论框 start -->
+    
+    <div class="ds-thread" data-thread-key="runhang.github.io{{ page.url }}" data-title="{{ page.title }}" data-url="runhang.github.io{{ page.url }}"></div>
+
+    <!-- 多说评论框 end -->
+    </div>
+  </div>
+
+  <div id="content" class="col-sm-2">
+    <!-- <div id="myAffix" class="shadow-bottom-center hidden-xs" data-spy="affix" data-offset-top="0" data-offset-bottom="-20"> -->
+    <div id="myAffix" class="shadow-bottom-center hidden-xs" >
+      <div class="categories-list-header">
+        Content
+      </div>
+      <div class="content-text"></div>
+    </div>
+  </div>
+</div>

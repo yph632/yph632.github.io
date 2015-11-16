@@ -1,0 +1,66 @@
+---
+layout: default
+---
+    <div class="post-area post">
+        {{ content }}
+		<hr/>
+        <ul class="pagination">
+            {% if page.previous %}
+            <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; 上一篇</a></li>
+               {% else %}
+            <li class="prev disabled"><a>&larr; 上一篇</a></li>
+            {% endif %}
+      
+			{% if page.next %}
+            <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">下一篇 &raquo;</a></li>
+            {% else %}
+            <li class="next disabled"><a>下一篇 &rarr;</a>
+           {% endif %}
+        </ul>
+	</div>
+    
+    <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+      <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+    </div>
+
+	<div class="page-content post comment">
+    <!-- 多说评论框 start -->
+    
+    <div class="ds-thread" data-thread-key="runhang.github.io{{ page.url }}" data-title="{{ page.title }}" data-url="runhang.github.io{{ page.url }}"></div>
+
+    <!-- 多说评论框 end -->
+    </div>
+
+	
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crhblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+<!-- 在新窗口中打开 -->
+
+  <script type="text/javascript">
+    function addBlankTargetForLink() {
+      $('a[href^="http"]').each(function(){
+          $(this).attr('target', '_blank');
+      });
+    }
+    //每次在有DOM插入时触发
+    $(document).bind('DOMNodeInserted', function(event) {
+      //addBlankTargetForLink();
+    });
+  </script>
+
+  </body>
+</html>

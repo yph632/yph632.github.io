@@ -1,0 +1,9 @@
+---
+require: "uil"
+---
+
+[{% for tag in site.tags order:ascending %}
+	{
+	"tag": "{{ tag | first }}"
+	}{% if forloop.last == false %},{% endif %}
+{% endfor %}]

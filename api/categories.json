@@ -1,0 +1,10 @@
+---
+require: "uil"
+---
+
+[{% for category in site.categories order:ascending %}
+	{
+	"category": "{{ category | first }}",
+	"size":"{{ category | last | size }}"
+	}{% if forloop.last == false %},{% endif %}
+{% endfor %}]

@@ -1,0 +1,23 @@
+    
+	<!-- 类别列表-->
+	<div class="shadow-corner-curl hidden-xs">
+		<!--博文分类的头 -->
+	    <div class="categories-list-header">
+            博文分类
+		    <div>
+		        &nbsp;&nbsp;<span><a href="{{ "/feed.xml" | prepend: site.baseurl }}">订阅 * RSS</a></span>
+		    </div>
+        </div>
+	    <!-- end -->
+		
+		<!-- 类别分类的列表-->
+        <div>
+		    <ul id="cates" class="list-unstyled">
+			   <li class="categories-list-item"><a href="{{'/index.html' | prepend: site.baseurl}}"  cate="All">
+			    All<span class="my-badge"> {{site.posts | size}}</span>
+			   </a></li>
+			
+			</ul>
+		</div>
+	</div>
+	<!-- 类别列表结束-->

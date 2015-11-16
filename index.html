@@ -1,0 +1,57 @@
+---
+layout: main
+---
+    <div class="page-content">
+        <div class="post-area">
+
+            <div class="post-list-header">
+                博文<i class="fa fa-space-shuttle"></i>
+            </div>
+            <div class="post-list-body">
+                <div class="all-posts" post-cate="All">
+                   {% for post in paginator.posts %}
+				    <div class="panel panel-default">
+						<div class="panel-heading">{{ post.title}}</div>
+                            <div class="panel-body">
+							<div ><p class="content"><!--excerpt简要 -->
+                                {{ post.excerpt | strip_html | newline_to_hr }}<p>
+                                <span class="badge">{{ post.date | date:"%Y年%m月%d日" }}</span>
+							    <a  href='{{ post.url }}' class="item-right">
+							     点击阅读
+							    </a>
+							</div>
+						    </div>
+					</div>
+                   {% endfor %}
+			    
+                    <!-- 分页 -->
+                    <div class="paginator">
+                        {% if paginator.total_pages > 1 %}
+                            <!-- 分页代码 -->
+                           {% if paginator.previous_page %}
+                               <a class="btn btn-parimary" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">上一页</a>
+                           {% endif %}
+
+                            {% for page in (1..paginator.total_pages) %}
+                                {%  if page == paginator.page %}
+                                    <a class="active">{{ page }}</a>
+                                {% elsif page == 1 %}
+                                    <a class="btn btn-info" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                                {% else %}
+                                    <a class="btn btn-info" href="/{{ site.paginate_path | prepend: site.url | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if paginator.next_page %}
+                                 <a class="btn btn-success" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
+                           {% endif %}
+                        {% endif %}
+                    </div>
+			        <!-- 分页代码结束-->
+				</div>
+		
+	    </div>
+		
+    </div>
+</div>
+

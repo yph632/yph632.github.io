@@ -1,0 +1,23 @@
+---
+require : "nil"
+---
+
+ [ {% for category in site.tags %}
+        {% if category contains 'javaScript' %}
+            {% for posts in category  %}
+                {% for post in posts %}
+                    {% if post.url %}
+                    {
+                      "title" : "{{post.title}}","excerpt":"{{ post.excerpt | strip_html | newline_to_hr }}",
+                      "url" : "{{site.url}}{{post.url}}",
+                      "date" : "{{ post.date | date:'%Y年%m月%d日' }}"
+                    }{% if forloop.last == false %},{% endif %}
+				    {%endif%}
+			    {%endfor%}
+	        {% endfor %}
+	    {% endif %}
+   {% endfor %}]
+     
+  
+
+			    

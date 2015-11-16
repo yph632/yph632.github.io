@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+ 
+  <body>
+     {% include header.html %}
+
+     <!--内容界面 -->
+     <div id="main" class="container-fluid main">
+	    <div id="index" class="row">
+		    <div class="col-sm-3">
+			    {% include categories.html %}
+			</div>
+			
+	        <div class="col-sm-9">
+                {{ content }}
+			</div>
+			
+	    </div>
+     </div>
+     <!-- 内容界面结束-->
+    
+    <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+      <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+    </div>
+
+    {% include footer.html %}
+
+	
+   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crhblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  </body>
+</html>
